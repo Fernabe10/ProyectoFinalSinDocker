@@ -1,0 +1,22 @@
+<h1 class="list-title">Listado de Participantes</h1>
+
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Centro</th>
+            <th>Especialidad</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let participante of ListaParticipantes">
+            <td>{{ participante.idParticipante }}</td>
+            <td>{{ participante.nombre }}</td>
+            <td>{{ participante.apellidos }}</td>
+            <td>{{ participante.centro }}</td>
+            <td>{{ participante.especialidad?.nombre }}</td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,16 @@
+<div id="contenedorNav">
+  <ul class="opciones">
+    <li *ngIf="isLogged() && perfil=='ROLE_ADMIN'"><a routerLink="/admin/especialidades">Especialidades</a></li>
+    <li *ngIf="isLogged() && perfil=='ROLE_ADMIN'"><a routerLink="/admin/experto">Expertos</a></li>
+    <li *ngIf="isLogged() && perfil=='ROLE_ADMIN'"><a routerLink="admin/ganadores">Ganadores</a></li>
+
+
+    <li *ngIf="isLogged() && perfil=='ROLE_EXPERTO'"><a routerLink="/experto/pruebas">Pruebas</a></li>
+    <li *ngIf="isLogged() && perfil=='ROLE_EXPERTO'"><a routerLink="/experto/participantes">Participantes</a></li>
+    <li *ngIf="isLogged() && perfil=='ROLE_EXPERTO'"><a routerLink="/experto/especialidades">Especialidades</a></li>
+    
+    
+    <li class="derecha" *ngIf="isLogged()">Hola, {{ getNombre() }} <button (click)="logout()">LOGOUT</button></li>
+    <li class="derecha" *ngIf="!isLogged()"><button (click)="login()">LOGIN</button></li>
+  </ul>
+</div>

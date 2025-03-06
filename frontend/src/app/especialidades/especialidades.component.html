@@ -1,0 +1,27 @@
+<h1>Listado de Especialidades</h1>
+
+<div class="add-button-container">
+    <a routerLink="crear" class="add-button">Añadir</a>
+</div>
+
+<table class="especialidades-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Código</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let especialidad of listaEspecialidades">
+            <td>{{ especialidad.idEspecialidad }}</td>
+            <td>{{ especialidad.nombre }}</td>
+            <td>{{ especialidad.codigo }}</td>
+            <td>
+                <a [routerLink]="['editar', especialidad.idEspecialidad]" class="edit-button">Editar</a>
+                <button (click)="borrarEspecialidad(especialidad.idEspecialidad)" class="delete-button">Borrar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

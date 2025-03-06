@@ -1,0 +1,18 @@
+<h1 class="table-title">Listado de Especialidades</h1>
+
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Código</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let especialidad of listaEspecialidades">
+            <td>{{ especialidad.idEspecialidad }}</td>
+            <td>{{ especialidad.nombre }}</td>
+            <td>{{ especialidad.codigo }}</td>
+        </tr>
+    </tbody>
+</table>

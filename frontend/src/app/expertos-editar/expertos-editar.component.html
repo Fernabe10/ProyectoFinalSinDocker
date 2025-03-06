@@ -1,0 +1,34 @@
+<h1>Editar Experto</h1>
+
+<form (ngSubmit)="editarExperto()" class="edit-form">
+  <div class="form-group">
+    <label for="id">ID</label>
+    <input type="text" id="id" [(ngModel)]="experto.idUser" name="idUser" [readonly]="true" required>
+  </div>
+
+  <div class="form-group">
+    <label for="nombre">Nombre</label>
+    <input type="text" id="nombre" [(ngModel)]="experto.nombre" name="nombre" required>
+  </div>
+
+  <div class="form-group">
+    <label for="apellidos">Apellidos</label>
+    <input type="text" id="apellidos" [(ngModel)]="experto.apellidos" name="apellidos" required>
+  </div>
+
+  <div class="form-group">
+    <label for="dni">DNI</label>
+    <input type="text" id="dni" [(ngModel)]="experto.dni" name="dni" required>
+  </div>
+
+  <div class="form-group">
+    <label for="especialidad">Especialidad</label>
+    <select id="especialidad" [(ngModel)]="experto.especialidadId" name="especialidadId" required>
+      <option *ngFor="let especialidad of especialidades" [value]="especialidad.idEspecialidad">
+        {{ especialidad.nombre }}
+      </option>
+    </select>
+  </div>
+
+  <button type="submit" class="submit-button">Guardar</button>
+</form>

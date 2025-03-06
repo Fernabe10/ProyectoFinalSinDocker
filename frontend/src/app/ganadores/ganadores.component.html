@@ -1,0 +1,30 @@
+<div>
+  <option value="" disabled selected>Seleccione una especialidad</option>
+  <select id="especialidad" [(ngModel)]="especialidadSeleccionada" (change)="traerParticipantesPorEspecialidad(especialidadSeleccionada)">
+    <option *ngFor="let especialidad of listaEspecialidades" [value]="especialidad.idEspecialidad">
+      {{ especialidad.nombre }}
+    </option>
+  </select>      
+</div>
+
+<!-- Tabla de participantes -->
+<table *ngIf="listaParticipantes && listaParticipantes.length > 0">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellidos</th>
+      <th>Especialidad</th>
+      <th>Nota</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let participante of listaParticipantes">
+      <td>{{ participante.nombre }}</td>
+      <td>{{ participante.apellidos }}</td>
+      <td>{{ participante.especialidad.nombre }}</td>
+      <td>{{ obtenerNotaFinal(participante.idParticipante) }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p *ngIf="listaParticipantes && listaParticipantes.length === 0">No hay participantes para esta especialidad.</p>

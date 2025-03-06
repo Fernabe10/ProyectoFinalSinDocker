@@ -1,0 +1,29 @@
+<h1>Listado de Expertos</h1>
+
+<div class="add-button-container">
+    <a routerLink="crear" class="add-button">Añadir</a>
+</div>
+
+<table class="expertos-table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Rol</th>
+            <th>Especialidad</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let experto of listaExpertos">
+            <td>{{ experto.nombre }}</td>
+            <td>{{ experto.apellidos }}</td>
+            <td>{{ experto.role }}</td>
+            <td>{{ obtenerNombreEspecialidad(experto.especialidadId) }}</td>
+            <td>
+                <a [routerLink]="['editar', experto.idUser]" class="edit-button">Editar</a>
+                <button (click)="borrarExperto(experto.idUser)" class="delete-button">Borrar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

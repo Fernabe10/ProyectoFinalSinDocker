@@ -1,0 +1,25 @@
+<h1 class="form-title">Editar Participante</h1>
+
+<form (ngSubmit)="editarParticipante()" class="styled-form">
+  <div class="form-group">
+    <label for="id">ID</label>
+    <input type="text" id="id" [(ngModel)]="participante.idParticipante" name="idParticipante" [readonly]="true" required>
+  </div>
+
+  <div class="form-group">
+    <label for="nombre">Nombre</label>
+    <input type="text" id="nombre" [(ngModel)]="participante.nombre" name="nombre" required>
+  </div>
+
+  <div class="form-group">
+    <label for="apellidos">Apellidos</label>
+    <input type="text" id="apellidos" [(ngModel)]="participante.apellidos" name="apellidos" required>
+  </div>
+
+  <div class="form-group">
+    <label for="centro">Centro</label>
+    <input type="text" id="centro" [(ngModel)]="participante.centro" name="centro" required>
+  </div>
+
+  <button type="submit" class="styled-button">Guardar</button>
+</form>

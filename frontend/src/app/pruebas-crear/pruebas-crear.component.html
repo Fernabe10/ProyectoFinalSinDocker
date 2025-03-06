@@ -1,0 +1,55 @@
+<h1 class="form-title">Añadir Prueba</h1>
+
+<form (ngSubmit)="crearPrueba()" *ngIf="!pruebaCreada" class="styled-form">
+  <div class="form-group">
+    <label for="enunciado">Enunciado (PDF)</label>
+    <input type="file" id="archivo" (change)="seleccionarArchivo($event)" accept=".pdf">
+  </div>
+
+  <div class="form-group">
+    <label for="especialidad">Especialidad</label>
+    <input type="text" id="especialidad" [value]="especialidad.nombre" disabled>
+  </div>
+
+  <div class="form-group">
+    <label for="puntuacionMaxima">Puntuacion Máxima</label>
+    <input type="number" id="puntuacionMaxima" [(ngModel)]="prueba.puntuacionMaxima" name="puntuacionMaxima" required>
+  </div>
+  
+  <button type="submit" class="styled-button">Guardar</button>
+</form>
+
+<!-- Formulario para añadir ítems -->
+<div *ngIf="pruebaCreada">
+  <h2 class="form-title">Añadir Ítem a la Prueba</h2>
+  
+  <form (ngSubmit)="agregarItem()" class="styled-form">
+    <div class="form-group">
+      <label for="descripcion">Descripción</label>
+      <input type="text" id="descripcion" [(ngModel)]="item.descripcion" name="descripcion" required>
+    </div>
+
+    <div class="form-group">
+      <label for="peso">Peso</label>
+      <input type="number" id="peso" [(ngModel)]="item.peso" name="peso" required>
+    </div>
+
+    <div class="form-group">
+      <label for="gradosConsecucion">Grados de Consecución</label>
+      <input type="number" id="gradosConsecucion" [(ngModel)]="item.gradosConsecucion" name="gradosConsecucion" required>
+    </div>
+    
+    <button type="submit" class="styled-button">Añadir Ítem</button>
+  </form>
+
+  
+
+  <div *ngIf="itemsAgregados.length > 0">
+    <h3>Ítems agregados:</h3>
+    <ul class="styled-list">
+      <li *ngFor="let item of itemsAgregados">
+       Descripción: {{ item.descripcion }} - Peso: {{ item.peso }} - Grados Consecución: {{ item.gradosConsecucion }}
+      </li>
+    </ul>
+  </div>
+</div>

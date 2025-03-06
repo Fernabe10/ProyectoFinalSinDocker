@@ -1,0 +1,106 @@
+/* Estilos generales */
+h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Contenedor para el botón "Añadir" */
+.add-button-container {
+    text-align: right; /* Mueve el botón a la derecha */
+    margin-bottom: 20px;
+}
+
+.add-button {
+    background-color: #4CAF50; /* Verde */
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+    background-color: #45a049; /* Verde más oscuro */
+}
+
+/* Estilos para la tabla */
+table.especialidades-table {
+    width: 80%; /* Asegura que la tabla no ocupe todo el ancho */
+    margin: 0 auto; /* Centra la tabla */
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    font-size: 1rem;
+}
+
+th {
+    background-color: #f4f4f4;
+    color: #555;
+    font-weight: bold;
+}
+
+/* Fila alternada para mejorar la legibilidad */
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Estilos para el enlace "Editar" */
+.edit-button {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 5px;
+    border: 1px solid #007bff;
+    transition: all 0.3s ease;
+}
+
+.edit-button:hover {
+    background-color: #007bff;
+    color: white;
+    border-color: #0056b3;
+    text-decoration: none;
+}
+
+/* Eliminar márgenes y agregar espaciado */
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+table th, table td {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+button {
+    color: #dc3545; /* Rojo similar al estilo de "Editar" */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 5px;
+    border: 1px solid #dc3545;
+    transition: all 0.3s ease;
+    background-color: transparent;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.delete-button:hover {
+    background-color: #dc3545;
+    color: white;
+    border-color: #a71d2a;
+    text-decoration: none;
+}

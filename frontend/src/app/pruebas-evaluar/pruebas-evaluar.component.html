@@ -1,0 +1,35 @@
+<h1 class="form-title">Evaluación de la Prueba</h1>
+
+<form (ngSubmit)="InsertarNotas()" class="evaluation-form">
+  <div *ngFor="let item of items" class="evaluation-item">
+    <h3>{{ item.descripcion }}</h3>
+    <p><strong>Peso:</strong> {{ item.peso }}</p>
+    <p><strong>Grados de Consecución:</strong> {{ item.gradosConsecucion }}</p>
+
+    <!-- Valoración -->
+    <div class="input-group">
+      <label for="valoracion-{{ item.idItem }}">Valoración:</label>
+      <input type="number" 
+             id="valoracion-{{ item.idItem }}" 
+             [(ngModel)]="item.valoracion" 
+             name="valoracion-{{ item.idItem }}"
+             min="0"
+             (input)="calcularNotaPonderada()"
+             class="styled-input"/>
+    </div>
+
+    <!-- Explicación -->
+    <div class="input-group">
+      <label for="explicacion-{{ item.idItem }}">Explicación:</label>
+      <textarea id="explicacion-{{ item.idItem }}" 
+                [(ngModel)]="item.explicacion" 
+                name="explicacion-{{ item.idItem }}"
+                class="styled-textarea"
+                placeholder="Explicación de la nota"></textarea> 
+    </div>
+  </div>
+
+  <h3 class="nota-ponderada">Nota Ponderada: <span>{{ notaPonderada }}</span> / 100</h3>
+
+  <button type="submit" class="submit-btn">Guardar</button>
+</form>

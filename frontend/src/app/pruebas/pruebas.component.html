@@ -1,0 +1,64 @@
+<h1 class="list-title">Listado de Pruebas</h1>
+
+<div class="button-container">
+  <a routerLink="crear" class="button-primary">Añadir</a>
+</div>
+
+<table class="styled-table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Enunciado</th>
+      <th>Puntuación Máxima</th>
+      <th>Especialidad</th>
+      <th colspan="3">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let prueba of listaPruebas">
+      <td>{{ prueba.idPrueba }}</td>
+      <td>{{ prueba.enunciado }}</td>
+      <td>{{ prueba.puntuacionMaxima }}</td>
+      <td>{{ prueba.especialidad.nombre }}</td>
+      <td>
+        <a [routerLink]="['editar', prueba.idPrueba]" class="button-secondary">Editar</a>
+      </td>
+      <td>
+        <a href="javascript:void(0)" (click)="mostrarParticipantes(prueba.idPrueba)" class="button-secondary">
+          Lista de participantes
+        </a>
+
+        <button (click)="borrarPrueba(prueba.idPrueba)" class="delete-button">Borrar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Mostrar participantes si se ha seleccionado una prueba -->
+<div *ngIf="pruebaSeleccionada">
+  <h3 class="sub-title">Participantes de la Prueba: {{ pruebaSeleccionada.enunciado }}</h3>
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Centro</th>
+        <th>Especialidad</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let participante of participantes">
+        <td>{{ participante.idParticipante }}</td>
+        <td>{{ participante.nombre }} {{ participante.apellidos }}</td>
+        <td>{{ participante.centro }}</td>
+        <td>{{ participante.especialidad.nombre }}</td>
+        <td>
+          <a [routerLink]="['evaluar', pruebaSeleccionada.idPrueba, participante.idParticipante]" class="button-secondary">
+            Evaluar
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
